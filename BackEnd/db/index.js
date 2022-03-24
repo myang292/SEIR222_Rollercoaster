@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 mongoose
-    .connect('')
+    .connect('mongodb://127.0.0.1:27017/ridesDatabase')
     .then(() => {
            console.log('connected!')
      })
@@ -10,5 +10,7 @@ mongoose
     })
 
 mongoose.set('debug', true)
+
 const db = mongoose.connection
+
 module.exports = db
