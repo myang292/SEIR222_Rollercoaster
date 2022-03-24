@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Search from '../components/Search'
 import ParkCard from '../components/ParkCard'
-import parksArray from '../temp_data/park'
+
 
 const Home = () => {
 

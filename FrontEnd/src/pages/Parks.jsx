@@ -1,28 +1,29 @@
 import React from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import {Routes, useNavigate} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 
 const Parks = (props) => {
     let navigate = useNavigate()
-
-    const showPark = (park) => {
-      navigate(`${park.id}`)
+  
+    const showParks = (parks) => {
+      navigate(`${parks.id}`)
     }
   
     return (
-        console.log(`parks is reporting data`)
+      <div className="parks-grid">
+        {
+        props.parks.map((park) => (
+          <div className="park-card" onClick={() => showParks(park)} key={park.id}>
+            <img style={{ display: 'block' }} src={park.img} alt={park.name} />
+            <h3>{park.name}</h3>
+          </div>
+        ))} 
 
-    //   <div className="park-grid">
-    //     {
-    //     props.park.map((park) => (
-    //       <div className="park-card" onClick={() => showPark(park)} key={park.id}>
-    //         <img style={{ display: 'block' }} src={park.img} alt={park.name} />
-    //         <h3>{park.name}</h3>
-    //       </div>
-    //     ))}
-    //     <Link to='/'>Home</Link>
-    //   </div>
+        <h1> This is the park</h1>
+      </div>
       
     )
-}
-
-export default Parks
+  }
+  
+  export default Parks
