@@ -2,10 +2,10 @@ const { model } = require('mongoose')
 const RideSchema = require('./ride')
 const ParkSchema = require('./park')
 
-const Rides = model('rides', RideSchema)
-const Parks = model('parks', ParkSchema)
+const Ride = model('rides', RideSchema)
+const Park = model('parks', ParkSchema)
 
 module.exports = {
-    Rides,
-    Parks
+    Ride,
+    Park
 }

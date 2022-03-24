@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose')
 
-const Parks = new Schema(
+const Park = new Schema(
     {
         name: { type: String, required: true },
         description: { type: String, required: true },
@@ -12,4 +12,4 @@ const Parks = new Schema(
     {timestamps: true}
 )
 
-module.exports = Parks
+module.exports = Park

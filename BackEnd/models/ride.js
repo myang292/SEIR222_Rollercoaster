@@ -1,7 +1,7 @@
 const { ObjectId } = require('bson')
 const { Schema } = require('mongoose')
 
-const Rides = new Schema (
+const Ride = new Schema (
     {
         name: { type: String, required: true},
         park: { type: ObjectId, required: true},
@@ -15,4 +15,4 @@ const Rides = new Schema (
     {timestamps: true}
 )
 
-module.exports = Rides
+module.exports = Ride
