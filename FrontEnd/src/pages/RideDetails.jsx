@@ -1,37 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react'
+import {Routes, useNavigate} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 
 const RideDetails = (props) => {
+    let navigate = useNavigate()
+  
+    const showRides = (rides) => {
+      navigate(`${rides.id}`)
+    }
+  
+    return (
+      <div className="parks-grid">
+        {
+        props.rides.map((ride) => (
+          <div className="park-card" onClick={() => showRides(ride)} key={ride.id}>
+            <img style={{ display: 'block' }} src={ride.img} alt={ride.name} />
+            <h3>{ride.name}</h3>
+          </div>
+        ))} 
 
-  let {id} = useParams()
-
-  const [selectedPark, setPark] = useState('')
-
-  useEffect(() => {
-    let selectedPark = props.boats.find(
-      (boat) => boat.id === parseInt(id)
+        <h1> This is the Ride Details</h1>
+      </div>
+      
     )
-    setPark(selectedPark)
-    
-  }, [props.boats, id])
-
-  return selectedPark ? (
-    <div className="detail">
-      <div className="detail-header">
-        <img src={selectedPark.img} alt={selectedPark.name} />
-        <div style={{minWidth: '30em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <h1>{selectedPark.name}</h1>
-        </div> 
-      </div>
-      <div className="info-wrapper">
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <h3>Price: ${selectedPark.price}</h3>
-          <h3>Boat ID: {selectedPark.id}</h3>
-        </div>
-        <p>{selectedPark.description}</p>
-      </div>
-    </div>
-  ) : null;
-}
-
-export default RideDetails
+  }
+  
+  export default RideDetails
