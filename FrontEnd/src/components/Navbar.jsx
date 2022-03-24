@@ -12,8 +12,7 @@ const Navbar = () => {
         <Link to="/">Home</Link>
         <Link to="Parks">Parks</Link>
         <Link to="About">Who are we</Link>
-        <Link to='ParkForm'>Tell us about a new Park</Link>
-        <div class="back" onClick={()=>{navigate(-1)}}>BACK</div>
+       
       </div>
     </nav>
   )
