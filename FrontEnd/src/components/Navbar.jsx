@@ -7,11 +7,11 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <h4>Starboard</h4>
+      <h4>The Coaster</h4>
       <div>
         <Link to="/">Home</Link>
-        <Link to="listings">Listings</Link>
-        <Link to="new">Add Boat</Link>
+        <Link to="Parks">Parks</Link>
+        <Link to="About">About</Link>
         <div class="back" onClick={()=>{navigate(-1)}}>BACK</div>
       </div>
     </nav>
