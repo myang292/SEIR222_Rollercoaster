@@ -13,7 +13,7 @@ For our database, we plan to build one collection for Parks, and a separate coll
 
 **Rides (collection)** will contain the name of each rollercoaster, as well as some of the most highly-advertised stats about each, including height, length, and top speed. Each Ride in this collection will be object-associated with the Park where it is found. 
 
-<center><img src="readme_img/erd_diagram.png" /></center>
+<center><img src="readme_img/erd_diagram_update3-24-1037am.png" /></center>
 
 ### Controllers
 We will also need to create Controller methods to access all of the entries from each collection, as well as to create, update and delete entries from the database.  
