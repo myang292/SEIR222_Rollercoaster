@@ -13,7 +13,7 @@ const Home = () => {
         <h1>Roller Coasters</h1>
         <div class="splitLine" ></div>
         <h2>
-          Your luxury boat dealer, bringing you only the best of the high seas.
+          The only people who get hurt on a roller coaster are the ones who jump off.
         </h2>
       </div>
     </div>

@@ -6,6 +6,8 @@ import Navbar from './components/Navbar'
 import Parks from './pages/Parks';
 import About from './pages/About'
 import Search from './components/Search'
+import ParkForm from './pages/ParkForm';
+import './styles/App.css'
  
  
  
@@ -21,6 +23,7 @@ function App() {
        <Route path="/" element={<Home/>} />
        <Route path="/parks" element={<Parks />} />
        <Route path="/about" element={<About />} />
+       <Route path="/Forms" element={<ParkForm />} />
      </Routes> 
      </main>
    </div>
