@@ -5,6 +5,7 @@ import { Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Parks from './pages/Parks';
+import RidesTopSpeed from './pages/RidesTopSpeed'
 import About from './pages/About'
 // import parksArray from './temp_data/park'
 import ParkForm from './components/ParkForm'
@@ -59,6 +60,7 @@ const App = () => {
     setNewPark({ ...newPark, [e.target.name]: e.target.value })
   }
 
+  if(rides && parks) {
   return (
     <div className="App">
       <Navbar />
@@ -69,10 +71,18 @@ const App = () => {
           <Route path='parks' element={<Parks parks={parks} />} />
           <Route path='/parks/:id' element={<RideDetails parks={parks} rides={rides}/> } />
           <Route path='new' element={ <ParkForm newPark={newPark} handleChange={handleChange} addPark={addPark}/>} />
+
+          <Route path='rides/top3/speed' element={<RidesTopSpeed parks={parks} rides={rides} />} />
+
         </Routes>
       </main>
     </div>
   );
+  } else {
+    return (
+      <div>Loading...</div>
+    )
+  }
 }
 
 export default App;
