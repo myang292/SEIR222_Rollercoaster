@@ -35,10 +35,10 @@ const Home = (props) => {
 
   return (
     <div className="home">
-      <h1>Theme Parks!</h1>
+      <h1>Theme Parks! 🎢 </h1>
       <Search onSubmit={searchOnSubmit} onChange={searchOnChange} value={searchQuery}/>
       <div className="search">
-        <h3>{searchQuery}</h3>
+        <h3>Showing Results for: {searchQuery}</h3>
         <section className="search-results container-grid">
           {searchResults.map((result) => {
             return <ParkCard key={result._id} onClick={() => showParks(result)} image={result.img} name={result.name} />
