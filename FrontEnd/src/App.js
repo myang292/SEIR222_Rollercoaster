@@ -52,7 +52,7 @@ const App = () => {
     }
     currentParks.push(createdPark)
     setPark(currentParks)
-    setNewPark({ id: '', name: '', location: '', description: '', rollercoaster: '' })
+    setNewPark({ id: '', description: '', location: '', address: '', url: '', img: '' })
   }
 
   const handleChange = (e) => {
