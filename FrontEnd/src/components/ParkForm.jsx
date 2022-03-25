@@ -5,11 +5,7 @@ import Axios from 'axios'
 
 const ParkForm = (props) => {
   let navigate = useNavigate()
-  // const handleSubmit = (e) => {
-  //   props.addPark(e)
-  //   navigate('/parks')
-  // }
-
+  
     const url = 'http://localhost:3001/api/parks/add-new'
     const [data, setData] = useState({
           name: '',
