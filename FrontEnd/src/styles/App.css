@@ -3,13 +3,22 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 3em;
+  height: 30em;
+  background-image: url(https://media3.giphy.com/media/WqSCrUOEWQpWC8JGNg/giphy.gif?cid=ecf05e47k27qeeestgv0qu5p9k28ax0he5xazwgvcp339rzx&rid=giphy.gif&ct=g);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
 }
 
-header nav a {
+header a {
   margin: 0 1em;
   color: #ffff;
+}
 
+nav {
+  float: right;
+  position: absolute;
+  bottom: 52%;
 }
 
 input {
@@ -67,6 +76,24 @@ button {
   cursor: pointer;
 }
 
+img {
+  cursor: pointer;
+  max-width: 896px;
+  max-height: 504px;
+  margin: auto;
+  width: 75%;
+}
+
+.about {
+  text-align: center;
+}
+
+.about-us {
+  text-align: center;
+  width: 75%;
+  margin: auto;
+}
+
 .card {
   max-width: 300px;
   max-height: 380px;
@@ -99,40 +126,38 @@ button {
   grid-gap: 1em;
   justify-content: center;
 }
-.genres {
-  width: 100%;
-}
-.genres h2,
-.search h2 {
-  text-align: center;
+
+.home h1 {
+  margin: 3%;
 }
 
-.game-content .image-container {
-  width: 95vw;
-  margin: auto;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 1em 0;
+.home h3 {
+  margin: 3%;
 }
 
-.image-container div {
-  margin: auto;
-  width: 90%;
-}
-
-.image-container img {
-  margin: auto;
-  text-align: center;
-  width: 100%;
-}
-
-.details {
-  width: 80%;
-  margin: auto;
-}
 
 .flex-row {
   display: flex;
 }
 .space {
   justify-content: space-between;
+}
+
+.park-card {
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 5%;
+  text-align: center;
+}
+
+.park-details {
+  text-align: center;
+}
+
+.ride-details {
+  text-align: left;
+}
+
+.search-results-container-grid {
+  text-align: center;
 }

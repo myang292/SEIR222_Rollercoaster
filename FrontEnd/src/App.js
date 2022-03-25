@@ -9,7 +9,7 @@ import About from './pages/About'
 // import parksArray from './temp_data/park'
 import ParkForm from './components/ParkForm'
 import RideDetails from './pages/RideDetails';
-import ridesArray from './temp_data/ride'
+// import ridesArray from './temp_data/ride'
 
 const App = () => {
   console.log(`we're in the app`)

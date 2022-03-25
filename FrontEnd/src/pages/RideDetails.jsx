@@ -34,20 +34,28 @@ const RideDetails = (props) => {
       <div className="park-details" >
         <h1> {selectedPark.name} </h1> 
         <img src={selectedPark.img} alt='poster'/>
-        <h3>{selectedPark.location}: {selectedPark.address}</h3>
+        <h3>Located in {selectedPark.location} at the address of {selectedPark.address}.</h3>
         <p> Description: {selectedPark.description}</p>
         <a href={selectedPark.url} target='_blank'>{selectedPark.url}</a>
-        
-        
-        {selectedRides.map((ride) => (
-            <div key={ride._id}>
-                <h3>{ride.name}</h3>
-            </div>
-
-        ))}
+        <div className='ride-details'>
+            <h2>Ride Name and Details:</h2>
+            {selectedRides.map((ride) => (
+                <div key={ride._id}>
+                    <ol>
+                        <h3>{ride.name}</h3>
+                        <p>{ride.description}</p>
+                        <ul>
+                            <li>Ride Height: {ride.height}</li>
+                            <li>Ride Length: {ride.length}</li>
+                            <li>Top Speed: {ride.speed}</li>
+                            <li>Steel/Wood: {ride.type}</li>
+                        </ul>
+                    </ol>
+                </div>
+            ))}
+        </div>
         
       </div>
-      
     )
   }
   else {
