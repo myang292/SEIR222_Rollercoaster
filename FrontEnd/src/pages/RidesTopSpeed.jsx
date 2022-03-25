@@ -31,15 +31,17 @@ const RidesTopSpeed = (props) => {
 
     console.log("toprides=", topRides)
 
-if (topRides) {
+if (topRides && topRides[0]) {
     return (
       <div className="parks-grid">
         {
-        topRides.map((ride) => ( //onClick={() => showParks(ride)}
+        topRides.map((ride, i) => ( //onClick={() => showParks(ride)}
           <div className="park-card"  key={ride._id}>
-            <h2>{ride.name}</h2>
+            <h2>{i+1}: {ride.name}</h2>
             <h3>Top Speed: {ride.speed}</h3>
-            <img style={{ display: 'block', width: '800px' }} src={ride.img}   alt={ride.name} />
+            <img style={{ display: 'block', width: '650px' }} src={ride.img} alt={ride.name} />
+            <h4><u>Other stats:</u> | Height: {ride.height} | Length: {ride.length}</h4>
+            <h4>Park: {props.parks.filter((a) => {return a._id === ride.park})[0].name}</h4>
             <p>{ride.description}</p>
             
           </div>
