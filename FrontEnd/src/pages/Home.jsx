@@ -1,11 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Search from '../components/Search'
 import ParkCard from '../components/ParkCard'
 
 
-const Home = () => {
+const Home = (props) => {
 
   const [searchResults, setSearchResults] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
@@ -20,29 +21,31 @@ const Home = () => {
     setSearchQuery(value)
   }
 
-  const searchOnSubmit = async function (e) {
-    e.preventDefault()
-    const res = await axios.get('AXIOS CALL HERE')
-    setSearchResults(res.data.results)
+  const searchOnSubmit = function (e) {
+    const parks = props.parks
+    let results = parks.filter((park) => {
+      return park.name.toLowerCase().includes(searchQuery.toLowerCase())
+    })
+    console.log(results)
+
+    setSearchResults(results)
   }
 
-  const cardOnClick = () => {
+  let navigate = useNavigate()
 
+  const showParks = (parks) => {
+    navigate(`parks/${parks._id}`)
   }
-
-
-
-
-
 
   return (
     <div className="home">
       <Search onSubmit={searchOnSubmit} onChange={searchOnChange} value={searchQuery}/>
       <div className="search">
         <h2>Search Results</h2>
+        <h3>{searchQuery}</h3>
         <section className="search-results container-grid">
           {searchResults.map((result) => {
-            return <ParkCard key={result.id} onClick={cardOnClick} image={result.background_image} name={result.name} />
+            return <ParkCard key={result._id} onClick={() => showParks(result)} image={result.img} name={result.name} />
 
           })}
         </section>

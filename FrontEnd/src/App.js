@@ -1,35 +1,58 @@
 import './styles/App.css';
-import React, { useState } from 'react';
+import axios from 'axios'
+import React, { useEffect, useState } from 'react';
 import { Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Parks from './pages/Parks';
 import About from './pages/About'
-import parksArray from '../temp_data/park'
+// import parksArray from './temp_data/park'
+import ParkForm from './components/ParkForm'
+import RideDetails from './pages/RideDetails';
+import ridesArray from './temp_data/ride'
 
 const App = () => {
   console.log(`we're in the app`)
   
-  const [parks, setPark] = useState(parksArray)
+  const getParks = async() => {
+    const parkList = await axios.get('http://localhost:3001/api/parks')
+    console.log(parkList)
+    setPark(parkList.data)
+  }
+
+  const getRides = async() => {
+    const ridesList = await axios.get('http://localhost:3001/api/rides')
+    console.log(ridesList)
+    setRides(ridesList.data)
+  }  
+
+  const [rides, setRides] = useState([])
+  const [parks, setPark] = useState([])
   const [newPark, setNewPark] = useState({
     id: '',
-    name: '',
-    img: '',
     description: '',
-    price: ''
+    location: '',
+    address: '',
+    url: '',
+    img: '',
   })
+
+  useEffect (() => {
+    getParks()
+    getRides()
+  },[])
 
   const addPark = (e) => {
     e.preventDefault()
-    const currentBoats = parks
-    const createdBoat = {
+    const currentParks = parks
+    const createdPark = {
       ...newPark,
       id: parseInt(parks.length + 1),
       price: parseInt(newPark.price)
     }
-    currentBoats.push(createdBoat)
-    setPark(currentBoats)
-    setNewPark({ id: '', name: '', img: '', description: '', price: '' })
+    currentParks.push(createdPark)
+    setPark(currentParks)
+    setNewPark({ id: '', name: '', location: '', description: '', rollercoaster: '' })
   }
 
   const handleChange = (e) => {
@@ -41,9 +64,10 @@ const App = () => {
       <Navbar />
       <main>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home parks={parks}/>} />
           <Route path='about' element={<About />} />
-          <Route path='parks' element={<Parks />} />
+          <Route path='parks' element={<Parks parks={parks} />} />
+          <Route path='/parks/:id' element={<RideDetails parks={parks} rides={rides}/> } />
           <Route path='new' element={ <ParkForm newPark={newPark} handleChange={handleChange} addPark={addPark}/>} />
         </Routes>
       </main>
